@@ -1,1 +1,31 @@
-<p>product-crud works!</p>
+<button mat-button class="button"><a routerLink="/products/create">Criar Produto</a></button>
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Preço </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+          </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <span class="action"> 
+            <i class="material-icons">
+                create
+             </i>
+            </span>
+            <span class="action"> 
+                <i class="material-icons">
+                    delete
+                 </i>
+                </span>
+    </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
