@@ -1,6 +1,10 @@
 .action{
     cursor: pointer;
 }
+.action a{
+    text-decoration: none;
+    color: #000;
+}
 .button{
     display: flex;
     justify-content: flex-end;

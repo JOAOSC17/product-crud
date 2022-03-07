@@ -1,0 +1,12 @@
+<mat-card class="product-create mat-elevation-z3">
+    <mat-card-title class="title">Editar Produto</mat-card-title>
+    <form class="container-form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+          <input matInput name="name"  [(ngModel)]="currentProduct.name" placeholder="Nome do Produto">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="price" [(ngModel)]="currentProduct.price"  placeholder="Preço">
+          </mat-form-field>
+          <button type="submit">Editar Produto</button>
+      </form>
+</mat-card>

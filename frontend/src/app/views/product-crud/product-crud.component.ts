@@ -24,4 +24,14 @@ export class ProductCrudComponent implements OnInit {
     )
 
 }
+deleteProduct(id:any): void {
+  this.productService.delete(id)
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+        location.reload() 
+      },
+      error: (e) => console.error(e)
+    });
+}
 }

@@ -13,11 +13,13 @@
         <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
         <mat-cell *matCellDef="let element">
             <span class="action"> 
+              <a routerLink="/products/{{element.id}}/edit">
             <i class="material-icons">
                 create
              </i>
+            </a>
             </span>
-            <span class="action"> 
+            <span class="action" (click)="deleteProduct(element.id)"> 
                 <i class="material-icons">
                     delete
                  </i>
