@@ -10,7 +10,7 @@ mongoose.connect("mongodb+srv://joao:duque123@cluster0.e5pds.mongodb.net/product
 });
 require("dotenv").config()
 
-app.post("/", async (req, res) => {
+app.post("/create", async (req, res) => {
     const newProduct = new ProductModel(req.body)
     try {
         const savedProduct = await newProduct.save();
@@ -19,7 +19,7 @@ app.post("/", async (req, res) => {
         res.status(500).json(err)        
     }
 })
-app.get("/", async (req, res) => {
+app.get("/list", async (req, res) => {
     try {
         const products = await ProductModel.find()
         res.json(products)
@@ -27,7 +27,7 @@ app.get("/", async (req, res) => {
        res.status(500).json(err);
     }
 })
-app.get("/:id", async (req, res) => {
+app.get("/show/:id", async (req, res) => {
     try{
         const product = await ProductModel.findById(req.params.id);
         res.status(200).json(product);
@@ -35,7 +35,7 @@ app.get("/:id", async (req, res) => {
         res.status(500).json(err);
     }
 })
-app.put("/:id", async (req, res) => {
+app.put("/update/:id", async (req, res) => {
     try{
         const updateProduct = await ProductModel.findByIdAndUpdate(
             req.params.id,
@@ -49,7 +49,7 @@ app.put("/:id", async (req, res) => {
         console.log(err)
     }
 })
-app.delete("/:id", async (req, res) => {
+app.delete("/delete/:id", async (req, res) => {
     try {
         const id = req.params.id;
         await ProductModel.findByIdAndRemove(id).exec();
