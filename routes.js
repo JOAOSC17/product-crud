@@ -1,4 +1,4 @@
-const route = req("express").Router()
+const route = require("express").Router()
 const ProductModel = require("./models/Product")
 route.post("/create", async (req, res) => {
     const newProduct = new ProductModel(req.body)
