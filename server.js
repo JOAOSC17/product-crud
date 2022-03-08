@@ -8,7 +8,7 @@ app.use(cors())
 mongoose.connect("mongodb+srv://joao:duque123@cluster0.e5pds.mongodb.net/product?retryWrites=true&w=majority",{
     useNewUrlParser:true,
 });
-
+require("dotenv").config()
 
 app.post("/", async (req, res) => {
     const newProduct = new ProductModel(req.body)
@@ -59,6 +59,6 @@ app.delete("/:id", async (req, res) => {
     }
 })
 
-app.listen(3001,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Server is running on port 3001...");
 })
